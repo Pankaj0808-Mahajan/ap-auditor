@@ -1,46 +1,97 @@
-# Getting Started with Create React App
+# AP-Auditor 🏭🔍
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**AP-Auditor** is an AI-powered industrial audit and quality inspection intelligence platform. It features real-time visual telemetry, interactive 3D digital-twin inspection simulations, automated defect detection, and comprehensive compliance audit logs.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🏗️ Repository Architecture
 
-### `npm start`
+This repository is structured to house both client applications and future backend audit engines:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```plaintext
+ap-auditor/
+├── frontend/             # Industrial visualizer & web UI
+│   ├── public/           # Static assets & HTML template
+│   ├── src/
+│   │   ├── components/   # Reusable UI components & layouts
+│   │   ├── pages/        # Dashboard, Audit Log, & Inspection views
+│   │   ├── scenes/       # 3D R3F digital twin & conveyor belt models
+│   │   ├── App.tsx       # Root routing & layout
+│   │   └── index.tsx     # Application entrypoint
+│   ├── package.json      # Frontend dependencies & scripts
+│   ├── tailwind.config.js# Industrial dark-mode design system
+│   └── tsconfig.json     # TypeScript configuration
+├── backend/              # (Upcoming) AI inference & audit API services
+├── .gitignore            # Universal project gitignore (Frontend + Backend)
+└── README.md             # Project documentation
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
 
-### `npm test`
+## ⚡ Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Frontend
+- **Framework**: React 19 + TypeScript
+- **3D Graphics & Simulation**: Three.js, `@react-three/fiber`, `@react-three/drei`
+- **Animations**: GSAP (`@gsap/react`), Lenis smooth scrolling
+- **Styling**: Tailwind CSS with custom industrial telemetry theme
+- **Icons**: Lucide React
+- **Routing & Networking**: React Router DOM v7, Axios
 
-### `npm run build`
+### Backend *(Planned)*
+- Python / FastAPI or Node.js audit microservices
+- Computer vision & AI inspection pipeline
+- Historical compliance database & webhooks
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🚀 Getting Started
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
+- [Node.js](https://nodejs.org/) (v18 or higher recommended)
+- `npm` or `yarn`
 
-### `npm run eject`
+### Running the Frontend
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. Navigate to the `frontend` folder:
+   ```bash
+   cd frontend
+   ```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+3. Start the development server:
+   ```bash
+   npm start
+   ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Learn More
+### Building for Production
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To create an optimized production build of the frontend:
+```bash
+cd frontend
+npm run build
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
+
+## 🔒 Environment Configuration
+
+If custom ports, host checks, or API base URLs are required, configure them inside `frontend/.env`:
+
+```env
+PORT=3000
+HOST=0.0.0.0
+# REACT_APP_API_BASE_URL=http://localhost:8000
+```
+
+---
+
+## 📄 License
+
+Private / Hackathon Project.

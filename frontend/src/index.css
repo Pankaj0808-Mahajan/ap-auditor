@@ -1,0 +1,212 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-industrial: #0A0A0C;
+    --accent: #0078D4; /* Microsoft Blue */
+    --warning: #FFB900; /* Secondary Amber */
+    --error: #D13438; /* Soft Red */
+    --nominal: #107C41; /* Auto-Pass Green */
+    --charcoal: #16161A;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: auto;
+    background-color: #0A0A0C;
+  }
+
+  body {
+    margin: 0;
+    background-color: #0A0A0C;
+    color: #E6E8EE;
+    font-family: 'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* Lenis smooth scrolling standard classes */
+  html.lenis, html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+  .lenis.lenis-scrolling iframe {
+    pointer-events: none;
+  }
+
+  ::selection {
+    background-color: rgba(0, 120, 212, 0.4);
+    color: #FFFFFF;
+  }
+
+  /* Industrial Mechanical Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0A0A0C;
+    border-left: 1px solid #1A1D27;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #232736;
+    border: 1px solid #33384A;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #0078D4;
+  }
+}
+
+@layer utilities {
+  /* Fluent Design Acrylic Glass Panels */
+  .acrylic-panel {
+    background: rgba(14, 15, 20, 0.75);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6), inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
+  }
+
+  .acrylic-panel-accent {
+    background: rgba(14, 18, 28, 0.82);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    border: 1px solid rgba(0, 120, 212, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6), inset 0 1px 0 0 rgba(0, 120, 212, 0.45);
+  }
+
+  .acrylic-panel-warning {
+    background: rgba(22, 19, 12, 0.82);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    border: 1px solid rgba(255, 185, 0, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6), inset 0 1px 0 0 rgba(255, 185, 0, 0.45);
+  }
+
+  .acrylic-panel-error {
+    background: rgba(26, 14, 16, 0.82);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    border: 1px solid rgba(209, 52, 56, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6), inset 0 1px 0 0 rgba(209, 52, 56, 0.45);
+  }
+
+  /* Sharp Industrial Chamfered corners (clipped edges) */
+  .cut-corner-tl {
+    clip-path: polygon(10px 0%, 100% 0%, 100% 100%, 0% 100%, 0% 10px);
+  }
+
+  .cut-corner-br {
+    clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0% 100%);
+  }
+
+  .cut-corners-diagonal {
+    clip-path: polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px);
+  }
+
+  /* Subtle noise / graphite surface */
+  .industrial-graphite {
+    background-color: #121318;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 0);
+    background-size: 20px 20px;
+  }
+
+  /* Technical Blueprint Grid */
+  .industrial-grid {
+    background-size: 32px 32px;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  }
+
+  .scanline-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0) 50%,
+      rgba(0, 0, 0, 0.35) 50%,
+      rgba(0, 0, 0, 0.35)
+    );
+    background-size: 100% 4px;
+    pointer-events: none;
+  }
+
+  /* Hairline precision borders */
+  .hairline-b {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .hairline-t {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* Mechanical Stamp Punch Impact Keyframes */
+  @keyframes stampPunch {
+    0% {
+      transform: scale(2.6) rotate(-12deg);
+      opacity: 0;
+      filter: blur(4px);
+    }
+    60% {
+      transform: scale(0.95) rotate(1deg);
+      opacity: 1;
+      filter: blur(0px);
+    }
+    82% {
+      transform: scale(1.04) rotate(-0.5deg);
+    }
+    100% {
+      transform: scale(1.0) rotate(0deg);
+      opacity: 1;
+      filter: blur(0px);
+    }
+  }
+
+  @keyframes stampShockwave {
+    0% {
+      transform: scale(0.7);
+      opacity: 0.85;
+    }
+    100% {
+      transform: scale(1.5);
+      opacity: 0;
+    }
+  }
+
+  @keyframes rowImpactDip {
+    0% {
+      transform: translateY(0);
+    }
+    30% {
+      transform: translateY(3px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  .animate-stamp-punch {
+    animation: stampPunch 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-shockwave {
+    animation: stampShockwave 0.5s ease-out forwards;
+  }
+
+  .animate-impact-dip {
+    animation: rowImpactDip 0.28s ease-out forwards;
+  }
+}
