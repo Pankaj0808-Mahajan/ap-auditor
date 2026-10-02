@@ -5,6 +5,7 @@ import {
   Info,
   Check,
 } from 'lucide-react';
+import { StatusBadge } from '../components/StatusBadge';
 
 interface ExceptionItem {
   id: string;
@@ -144,17 +145,7 @@ export const ReviewQueuePage: React.FC = () => {
                         <span className="font-mono text-xs font-bold text-white">
                           {item.id}
                         </span>
-                        <span
-                          className={`text-[10px] font-mono px-1.5 py-0.2 rounded border ${
-                            item.flagType === 'DUPLICATE'
-                              ? 'text-[#EF4444] bg-[#EF4444]/10 border-[#EF4444]/30'
-                              : item.flagType === 'VARIANCE'
-                              ? 'text-[#F59E0B] bg-[#F59E0B]/10 border-[#F59E0B]/30'
-                              : 'text-[#0078D4] bg-[#0078D4]/10 border-[#0078D4]/30'
-                          }`}
-                        >
-                          {item.flagType}
-                        </span>
+                        <StatusBadge status={item.flagType} size="xs" />
                       </div>
                       <div className="text-sm font-semibold text-white mt-1">
                         {item.vendor}

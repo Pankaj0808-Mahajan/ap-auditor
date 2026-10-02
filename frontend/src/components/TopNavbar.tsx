@@ -15,8 +15,7 @@ export const TopNavbar: React.FC<TopNavbarProps> = ({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { id: 'home', label: 'Home', isPage: true },
-    { id: 'features', label: 'Features', isPage: false },
+    { id: 'home', label: 'Chat Copilot', isPage: true },
     { id: 'dashboard', label: 'Dashboard', isPage: true },
     { id: 'review', label: 'Review Queue', isPage: true },
     { id: 'audit', label: 'Audit Log', isPage: true },
@@ -24,18 +23,7 @@ export const TopNavbar: React.FC<TopNavbarProps> = ({
 
   const handleItemClick = (item: { id: string; label: string; isPage: boolean }) => {
     setMobileMenuOpen(false);
-    if (item.id === 'features') {
-      if (activeView !== 'home') {
-        onNavigate('home');
-        setTimeout(() => {
-          document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
-      } else {
-        document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else {
-      onNavigate(item.id as 'home' | 'dashboard' | 'review' | 'audit');
-    }
+    onNavigate(item.id as 'home' | 'dashboard' | 'review' | 'audit');
   };
 
   return (
